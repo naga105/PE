@@ -1,0 +1,16 @@
+.addProduct {
+    text-align: center;
+    font-weight: bold;
+    width: 20rem;
+    margin-left: calc((100% - 20rem) / 2);
+    background-color: #73e8ff;
+}
+
+.input-group {
+    margin-top: 1rem;
+}
+
+.input-button {
+    color: white;
+    margin-bottom: 1rem;
+}

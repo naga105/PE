@@ -1,0 +1,4 @@
+.scroll-body {
+  height: 30rem;
+  overflow-y: scroll;
+}

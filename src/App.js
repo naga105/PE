@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useReducer, useMemo } from "react";
+import "./App.css";
+import Home from "./components/home";
+import { reducer } from "./utils/reducer/reducer";
+import { productContext } from "./utils/hooks/productContext";
 
-function App() {
+const App = () => {
+  const initialState = {
+    product: [
+      { id: "1", name: "Nguyen nhat huy", gpa: 2.5 },
+      { id: "2", name: "Nguyen nhat huy", gpa: 2.5 },
+    ],
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const addReducer = useMemo(() => {
+    return {
+      state,
+      dispatch,
+    };
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <productContext.Provider value={addReducer}>
+      <div className="   pb-20 bg-gradient-to-r from-cyan-500 to-blue-500">
+        <Home />
+      </div>
+    </productContext.Provider>
   );
-}
+};
 
 export default App;
